@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="http://ux.alipay-inc.com/www/amui/dist/amui.css" media="all">
+    <title>WKWebView Test</title>
+</head>
+<body ontouchstart="">
+<div class="am-content">
+    <div class="am-list">
+         
+       <h1 style="margint-top:60px;">WKWebView 测试 字体变红</h1>
+       <button onclick="callNative()">call native alert</button>
+        <br/>
+        <br/>
+        <a href='http://www.taobao.com'>针对某种类型不能跳转 - 点击连接</a> 
+        <br/>
+        <br/>
+       <a href='http://www.baidu.com'>针对特定链接不能跳转</a> 
+    </div>
+    <div>
+</div>
+
+<script>
+	
+	function callNative () {
+    	try {
+    		var messages = { 'msg' : 'Hello, WKWebView!' };
+/* 			var messages =  'Hello, WKWebView!' ; */
+        	webkit.messageHandlers.callbackHandler.postMessage(messages);
+		} catch(err) {
+			console.log('The native context does not exist yet');
+       }  
+    }
+	
+	function redFont() {
+		setTimeout(function(){
+			document.querySelector('h1').style.color = "red";	
+		}, 3000);
+	}
+
+</script>
+
+</body></html>

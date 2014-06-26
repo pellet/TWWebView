@@ -12,6 +12,7 @@
 		934E6743195AB02A003FD836 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934E6741195AB02A003FD836 /* Main.storyboard */; };
 		934E6745195AB02A003FD836 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 934E6744195AB02A003FD836 /* Images.xcassets */; };
 		934E6751195AB02A003FD836 /* TWWebViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934E6750195AB02A003FD836 /* TWWebViewTests.swift */; };
+		93DC5C5F195BB5BA006535EA /* wkwebview.html in Resources */ = {isa = PBXBuildFile; fileRef = 93DC5C5E195BB5BA006535EA /* wkwebview.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 		934E674A195AB02A003FD836 /* TWWebViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TWWebViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		934E674F195AB02A003FD836 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		934E6750195AB02A003FD836 /* TWWebViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWWebViewTests.swift; sourceTree = "<group>"; };
+		93DC5C5E195BB5BA006535EA /* wkwebview.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = wkwebview.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				934E6741195AB02A003FD836 /* Main.storyboard */,
 				934E6744195AB02A003FD836 /* Images.xcassets */,
 				934E673B195AB02A003FD836 /* Supporting Files */,
+				93DC5C5E195BB5BA006535EA /* wkwebview.html */,
 			);
 			path = TWWebView;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93DC5C5F195BB5BA006535EA /* wkwebview.html in Resources */,
 				934E6743195AB02A003FD836 /* Main.storyboard in Resources */,
 				934E6745195AB02A003FD836 /* Images.xcassets in Resources */,
 			);
@@ -397,6 +401,7 @@
 				934E6756195AB02A003FD836 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		934E6757195AB02A003FD836 /* Build configuration list for PBXNativeTarget "TWWebViewTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +410,7 @@
 				934E6759195AB02A003FD836 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

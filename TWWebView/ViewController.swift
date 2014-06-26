@@ -39,15 +39,10 @@ class ViewController: UIViewController,WKNavigationDelegate, WKScriptMessageHand
         self.webview.navigationDelegate = self
         self.view!.addSubview(self.webview)
         
-        let url = NSURL(string: "http://ux.alipay-inc.com/ftp/h5/zhuluwkwebview.html")
+        let path = NSBundle.mainBundle().pathForResource("wkwebview", ofType: "html")
+        let url = NSURL.fileURLWithPath(path)
         let request = NSURLRequest(URL: url)
         self.webview.loadRequest(request)
-        
-        let backBtn = UIButton(frame: CGRectMake(10, 450, 60, 30))
-        backBtn.setTitle("Back", forState: UIControlState.Normal)
-        backBtn.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: "tappedButton:", forControlEvents: UIControlEvents.TouchUpInside)
-        self.view!.addSubview(backBtn)
     }
     
     func tappedButton(sender: UIButton!)
@@ -81,7 +76,8 @@ class ViewController: UIViewController,WKNavigationDelegate, WKScriptMessageHand
     func webView(webView: WKWebView!, decidePolicyForNavigationAction navigationAction: WKNavigationAction!, decisionHandler: ((WKNavigationActionPolicy) -> Void)!)
     {
         //if back，cancel load
-        if navigationAction.navigationType == .BackForward {
+        println(navigationAction)
+        if navigationAction.navigationType.toRaw() == 0 {
             decisionHandler(.Cancel)
             return;
         }
@@ -93,7 +89,6 @@ class ViewController: UIViewController,WKNavigationDelegate, WKScriptMessageHand
     {
         println(navigationResponse.response.URL)
         if navigationResponse.response.URL.absoluteString == "http://www.baidu.com/" {
-//            webView.stopLoading()
             decisionHandler(.Cancel)
         }
         decisionHandler(.Allow)
