@@ -89,6 +89,7 @@ class ViewController: UIViewController,WKNavigationDelegate, WKScriptMessageHand
     {
         println(navigationResponse.response.URL)
         if navigationResponse.response.URL.absoluteString == "http://www.baidu.com/" {
+//            webView.stopLoading()
             decisionHandler(.Cancel)
         }
         decisionHandler(.Allow)
