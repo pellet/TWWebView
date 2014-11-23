@@ -37,11 +37,11 @@ class ViewController: UIViewController,WKNavigationDelegate, WKScriptMessageHand
         self.webview.allowsBackForwardNavigationGestures = true // or false
         
         self.webview.navigationDelegate = self
-        self.view!.addSubview(self.webview)
+        self.view.addSubview(self.webview)
         
         let path = NSBundle.mainBundle().pathForResource("wkwebview", ofType: "html")
-        let url = NSURL.fileURLWithPath(path)
-        let request = NSURLRequest(URL: url)
+        let url = NSURL.fileURLWithPath(path!)
+        let request = NSURLRequest(URL: url!)
         self.webview.loadRequest(request)
     }
     
@@ -60,8 +60,12 @@ class ViewController: UIViewController,WKNavigationDelegate, WKScriptMessageHand
         self.presentViewController(alert, animated: true, completion: nil)
     }
 
-     //WKScriptMessageHandler
-    func userContentController(userContentController: WKUserContentController!, didReceiveScriptMessage message: WKScriptMessage!) {
+    /*! @abstract Invoked when a script message is received from a webpage.
+    @param userContentController The user content controller invoking the
+    delegate method.
+    @param message The script message received.
+    */
+    func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
         if(message.name == "callbackHandler") {
             println("JavaScript is sending a message \(message.body)")
             let msg = message.body as NSDictionary
@@ -77,7 +81,7 @@ class ViewController: UIViewController,WKNavigationDelegate, WKScriptMessageHand
     {
         //if back，cancel load
         println(navigationAction)
-        if navigationAction.navigationType.toRaw() == 0 {
+        if navigationAction.navigationType.rawValue == 0 {
             decisionHandler(.Cancel)
             return;
         }
@@ -88,7 +92,7 @@ class ViewController: UIViewController,WKNavigationDelegate, WKScriptMessageHand
     func webView(webView: WKWebView!, decidePolicyForNavigationResponse navigationResponse: WKNavigationResponse!, decisionHandler: ((WKNavigationResponsePolicy) -> Void)!)
     {
         println(navigationResponse.response.URL)
-        if navigationResponse.response.URL.absoluteString == "http://www.baidu.com/" {
+        if navigationResponse.response.URL?.absoluteString == "http://www.baidu.com/" {
 //            webView.stopLoading()
             decisionHandler(.Cancel)
         }
